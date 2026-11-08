@@ -1,0 +1,12 @@
+cooldown: 5
+armor:
+  minimum-pieces: 1
+  allowed: [DIAMOND, NETHERITE]
+random:
+  world: world
+  radius: 1000
+  attempts: 64
+combat:
+  refresh-seconds: 5
+  start-commands: []
+  end-commands: []

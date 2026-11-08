@@ -1,0 +1,26 @@
+armor:
+  chat: '&cВы не можете пойти PvP в этой броне. Нужен хотя бы один алмазный или незеритовый элемент.'
+queued:
+  chat: '&aВы добавлены в очередь. /pvp leave — выйти.'
+left:
+  chat: '&eПоиск отменён.'
+busy:
+  chat: '&cИгрок уже занят или недоступен.'
+team:
+  chat: '&aПати создана.'
+invite:
+  chat: '&e%player% приглашает вас: /pvp team accept %player%'
+party-required:
+  chat: '&cДля 2v2 нужна пати из двух игроков.'
+countdown:
+  title: '&c%time%'
+  subtitle: '&fДо сражения'
+  actionbar: '&eПриготовьтесь!'
+start:
+  title: '&cВ бой!'
+win:
+  title: '&aПобеда!'
+cancel:
+  chat: '&cБой отменён: игрок недоступен, броня изменена или место недоступно.'
+reload:
+  chat: '&aКонфигурация перезагружена.'

@@ -1,0 +1,8 @@
+arenas:
+  example:
+    enabled: false
+    world: world
+    min: [-20, 60, -20]
+    max: [20, 90, 20]
+    first: [-10, 65, 0]
+    second: [10, 65, 0]

@@ -1,0 +1,26 @@
+title: '&8DeathPvP | Поиск сражения'
+size: 27
+items:
+  normal:
+    slot: 11
+    material: IRON_SWORD
+    name: '&aБой 1v1'
+    lore: ['&7Сражение в случайной точке мира']
+    actions: ['QUEUE:NORMAL', 'CLOSE']
+  death:
+    slot: 13
+    material: DIAMOND_SWORD
+    name: '&cСмертельная битва'
+    lore: ['&7Арена до смерти одного игрока']
+    actions: ['QUEUE:DEATH', 'CLOSE']
+  team:
+    slot: 15
+    material: NETHERITE_SWORD
+    name: '&6Бой 2v2'
+    lore: ['&7Смертельная битва команд']
+    actions: ['QUEUE:TEAM', 'CLOSE']
+  leave:
+    slot: 22
+    material: BARRIER
+    name: '&cОтменить поиск'
+    actions: ['LEAVE', 'CLOSE']
