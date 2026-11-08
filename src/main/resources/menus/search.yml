@@ -1,26 +1,49 @@
+# Заголовок меню поддерживает цветовые коды &.
+# size: 9, 18, 27, 36, 45 или 54. slot начинается с 0.
+# material — название материала Bukkit; name — имя предмета; lore — описание.
+# actions выполняются сверху вниз. Каждое действие — отдельная строка в кавычках.
+# Пробел после двоеточия поддерживается: 'QUEUE: NORMAL'.
+# Режимы: NORMAL — обычный 1v1, DEATH — арена 1v1, TEAM — арена 2v2.
+# Другие действия: 'LEAVE', 'CLOSE', 'CHAT: текст', 'TITLE: текст',
+# 'SUBTITLE: текст', 'ACTIONBAR: текст'.
 title: '&8DeathPvP | Поиск сражения'
 size: 27
+
 items:
   normal:
     slot: 11
     material: IRON_SWORD
     name: '&aБой 1v1'
-    lore: ['&7Сражение в случайной точке мира']
-    actions: ['QUEUE:NORMAL', 'CLOSE']
+    lore:
+      - '&7Сражение в случайной точке мира'
+    actions:
+      - 'QUEUE: NORMAL'
+      - 'CLOSE'
+
   death:
     slot: 13
     material: DIAMOND_SWORD
     name: '&cСмертельная битва'
-    lore: ['&7Арена до смерти одного игрока']
-    actions: ['QUEUE:DEATH', 'CLOSE']
+    lore:
+      - '&7Арена до смерти одного игрока'
+    actions:
+      - 'QUEUE: DEATH'
+      - 'CLOSE'
+
   team:
     slot: 15
     material: NETHERITE_SWORD
     name: '&6Бой 2v2'
-    lore: ['&7Смертельная битва команд']
-    actions: ['QUEUE:TEAM', 'CLOSE']
+    lore:
+      - '&7Смертельная битва команд'
+    actions:
+      - 'QUEUE: TEAM'
+      - 'CLOSE'
+
   leave:
     slot: 22
     material: BARRIER
     name: '&cОтменить поиск'
-    actions: ['LEAVE', 'CLOSE']
+    actions:
+      - 'LEAVE'
+      - 'CLOSE'
