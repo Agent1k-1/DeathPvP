@@ -1,6 +1,5 @@
 package com.agent1k.menu;
 
-import com.agent1k.action.Action;
 import com.agent1k.core.PvpContext;
 import java.util.*;
 import org.bukkit.entity.Player;
@@ -23,16 +22,8 @@ public final class MenuListener implements Listener {
       if (e.getWhoClicked() instanceof Player p
           && e.getRawSlot() >= 0
           && e.getRawSlot() < m.inventory.getSize())
-        for (String raw : m.bindings.getOrDefault(e.getRawSlot(), List.of())) {
-          String[] pair = raw.split(":", 2);
-          Action action = context.actions.get(pair[0].trim().toUpperCase(Locale.ROOT));
-          if (action != null)
-            try {
-              action.execute(p, pair.length == 2 ? pair[1].stripLeading() : "");
-            } catch (IllegalArgumentException ex) {
-              context.plugin.getLogger().warning("Invalid menu action: " + raw);
-            }
-        }
+        new com.agent1k.action.ActionExecutor(context)
+            .execute(p, m.bindings.getOrDefault(e.getRawSlot(), List.of()), Map.of());
     }
   }
 

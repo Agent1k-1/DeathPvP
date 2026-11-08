@@ -22,8 +22,7 @@ public final class PvpCommand implements CommandExecutor {
         for (Battle b : new HashSet<>(context.battles.values())) b.finish(false);
         context.waiting.clear();
         context.configuration.load();
-        sender.sendMessage(
-            context.message.color(context.messages.getString("reload.chat", "Reloaded")));
+        context.message.tell(sender, "reload");
       }
       return true;
     }

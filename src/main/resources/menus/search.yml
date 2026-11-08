@@ -1,11 +1,11 @@
-# Заголовок меню поддерживает цветовые коды &.
-# size: 9, 18, 27, 36, 45 или 54. slot начинается с 0.
-# material — название материала Bukkit; name — имя предмета; lore — описание.
-# actions выполняются сверху вниз. Каждое действие — отдельная строка в кавычках.
-# Пробел после двоеточия поддерживается: 'QUEUE: NORMAL'.
-# Режимы: NORMAL — обычный 1v1, DEATH — арена 1v1, TEAM — арена 2v2.
-# Другие действия: 'LEAVE', 'CLOSE', 'CHAT: текст', 'TITLE: текст',
-# 'SUBTITLE: текст', 'ACTIONBAR: текст'.
+# size: 9, 18, 27, 36, 45 или 54. Нумерация slot начинается с 0.
+# material — материал Bukkit; name — имя предмета; lore — строки описания.
+# Цвета поддерживают коды &. Каждое действие — отдельная строка в кавычках.
+# [queue] NORMAL / DEATH / TEAM — начать поиск соответствующего боя.
+# [leave] — отменить поиск; [close] — закрыть меню.
+# [message] текст, [title] текст, [subtitle] текст, [actionbar] текст — вывод сообщений.
+# title и subtitle из одного списка показываются вместе после остальных действий.
+# Старый формат 'QUEUE: NORMAL' также поддерживается.
 title: '&8DeathPvP | Поиск сражения'
 size: 27
 
@@ -17,8 +17,8 @@ items:
     lore:
       - '&7Сражение в случайной точке мира'
     actions:
-      - 'QUEUE: NORMAL'
-      - 'CLOSE'
+      - '[queue] NORMAL'
+      - '[close]'
 
   death:
     slot: 13
@@ -27,8 +27,8 @@ items:
     lore:
       - '&7Арена до смерти одного игрока'
     actions:
-      - 'QUEUE: DEATH'
-      - 'CLOSE'
+      - '[queue] DEATH'
+      - '[close]'
 
   team:
     slot: 15
@@ -37,13 +37,13 @@ items:
     lore:
       - '&7Смертельная битва команд'
     actions:
-      - 'QUEUE: TEAM'
-      - 'CLOSE'
+      - '[queue] TEAM'
+      - '[close]'
 
   leave:
     slot: 22
     material: BARRIER
     name: '&cОтменить поиск'
     actions:
-      - 'LEAVE'
-      - 'CLOSE'
+      - '[leave]'
+      - '[close]'
