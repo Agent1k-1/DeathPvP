@@ -1,8 +1,8 @@
 package com.agent1k.message;
 
 import com.agent1k.core.PvpContext;
+import com.agent1k.utils.HexUtils;
 import java.util.*;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 
 public final class MessageService {
@@ -13,7 +13,7 @@ public final class MessageService {
   }
 
   public String color(String s) {
-    return ChatColor.translateAlternateColorCodes('&', s);
+    return HexUtils.color(s);
   }
 
   public void tell(org.bukkit.command.CommandSender sender, String key) {
