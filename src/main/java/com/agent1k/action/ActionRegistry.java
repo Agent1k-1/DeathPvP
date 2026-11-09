@@ -12,7 +12,7 @@ public final class ActionRegistry {
   }
 
   public void register() {
-    context.actions.put("CLICK", new com.agent1k.interactive.ClickableMessageAction());
+    context.actions.put("CLICK", new com.agent1k.core.interactive.ClickableMessageAction());
     context.actions.put(
         "CHAT",
         new AbstractAction() {

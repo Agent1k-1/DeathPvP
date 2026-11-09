@@ -1,4 +1,4 @@
-package com.agent1k.interactive;
+package com.agent1k.core.interactive;
 
 import java.util.List;
 import java.util.regex.Pattern;

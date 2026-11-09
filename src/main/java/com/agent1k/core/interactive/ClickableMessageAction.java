@@ -1,4 +1,4 @@
-package com.agent1k.interactive;
+package com.agent1k.core.interactive;
 
 import com.agent1k.action.Action;
 import com.agent1k.utils.HexUtils;

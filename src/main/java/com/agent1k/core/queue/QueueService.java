@@ -1,6 +1,6 @@
-package com.agent1k.queue;
+package com.agent1k.core.queue;
 
-import com.agent1k.battle.Battle;
+import com.agent1k.core.battle.Battle;
 import com.agent1k.core.PvpContext;
 import com.agent1k.model.Mode;
 import java.util.*;

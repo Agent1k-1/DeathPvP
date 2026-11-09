@@ -1,4 +1,4 @@
-package com.agent1k.armor;
+package com.agent1k.core.armor;
 
 import com.agent1k.core.PvpContext;
 import java.util.*;

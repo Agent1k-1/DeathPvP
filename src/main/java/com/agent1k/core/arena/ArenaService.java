@@ -1,4 +1,4 @@
-package com.agent1k.arena;
+package com.agent1k.core.arena;
 
 import com.agent1k.core.PvpContext;
 import java.util.*;

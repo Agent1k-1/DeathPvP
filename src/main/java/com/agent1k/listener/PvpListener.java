@@ -1,6 +1,6 @@
 package com.agent1k.listener;
 
-import com.agent1k.battle.Battle;
+import com.agent1k.core.battle.Battle;
 import com.agent1k.core.PvpContext;
 import com.agent1k.model.Mode;
 import java.util.*;

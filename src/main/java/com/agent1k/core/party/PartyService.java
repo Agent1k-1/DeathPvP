@@ -1,4 +1,4 @@
-package com.agent1k.party;
+package com.agent1k.core.party;
 
 import com.agent1k.core.PvpContext;
 import com.agent1k.model.Mode;

@@ -39,7 +39,7 @@ public final class MessageService {
     }
     if (key.equals("invite")) {
       try {
-        actions = com.agent1k.interactive.InvitationActions.resolve(actions, vars.get("player"));
+        actions = com.agent1k.core.interactive.InvitationActions.resolve(actions, vars.get("player"));
       } catch (IllegalArgumentException exception) {
         context.plugin.getLogger().warning("Invalid invite actions: " + exception.getMessage());
         return;

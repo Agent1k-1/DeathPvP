@@ -1,6 +1,6 @@
 package com.agent1k;
 
-import com.agent1k.battle.Battle;
+import com.agent1k.core.battle.Battle;
 import com.agent1k.core.PvpContext;
 import java.io.File;
 import java.util.*;

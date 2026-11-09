@@ -1,4 +1,4 @@
-package com.agent1k.combat;
+package com.agent1k.core.combat;
 
 import com.agent1k.core.PvpContext;
 import java.util.*;
