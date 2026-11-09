@@ -11,8 +11,14 @@ public final class MenuConfig {
   private final List<MenuItem> items;
 
   public MenuConfig(ConfigurationSection configuration) {
-    name = configuration.getString("name", "DeathPvP");
-    size = Math.max(9, Math.min(54, configuration.getInt("size", 27) / 9 * 9));
+    if (!configuration.isString("name") || !configuration.isInt("size")) {
+      throw new IllegalArgumentException("Menu requires name (string) and size (integer)");
+    }
+    name = configuration.getString("name");
+    size = configuration.getInt("size");
+    if (size < 9 || size > 54 || size % 9 != 0) {
+      throw new IllegalArgumentException("Menu size must be 9, 18, 27, 36, 45 or 54");
+    }
     List<MenuItem> loaded = new ArrayList<>();
     ConfigurationSection settings = configuration.getConfigurationSection("menu-settings");
     if (settings != null) {
@@ -21,11 +27,14 @@ public final class MenuConfig {
         if (item == null || !item.isInt("slot")) continue;
         int slot = item.getInt("slot");
         if (slot < 0 || slot >= size) continue;
-        Material material = Material.matchMaterial(item.getString("material", "STONE"));
+        if (!item.isString("material") || !item.isString("name")) {
+          throw new IllegalArgumentException("Menu item " + key + " requires material and name");
+        }
+        Material material = Material.matchMaterial(item.getString("material"));
         if (material == null || material.isAir() || !material.isItem()) continue;
         loaded.add(
             new MenuItem(
-                item.getString("name", " "),
+                item.getString("name"),
                 item.getStringList("lore"),
                 slot,
                 material,

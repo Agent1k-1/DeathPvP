@@ -33,7 +33,7 @@ public final class MenuLoader {
         loaded.put(
             file.getName().substring(0, file.getName().length() - 4),
             new MenuConfig(configuration));
-      } catch (IOException | InvalidConfigurationException exception) {
+      } catch (IOException | InvalidConfigurationException | IllegalArgumentException exception) {
         plugin
             .getLogger()
             .warning("Cannot load menu " + file.getName() + ": " + exception.getMessage());
