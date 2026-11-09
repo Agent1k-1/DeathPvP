@@ -42,12 +42,12 @@ public final class ActionExecutor {
         default -> {
           Action action = context.actions.get(type);
           if (action == null) {
-            context.plugin.getLogger().warning("Unknown action: " + raw);
+            context.plugin.getLogger().warning("Неизвестное действие: " + raw);
           } else if (sender instanceof Player player) {
             try {
               action.execute(player, value);
             } catch (IllegalArgumentException exception) {
-              context.plugin.getLogger().warning("Invalid action: " + raw);
+              context.plugin.getLogger().warning("Некорректное действие: " + raw);
             }
           }
         }

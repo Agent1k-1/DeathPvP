@@ -44,7 +44,10 @@ public final class MessageService {
       try {
         actions = InvitationActions.resolve(actions, vars.get("player"));
       } catch (IllegalArgumentException exception) {
-        context.plugin.getLogger().warning("Invalid invite actions: " + exception.getMessage());
+        context
+            .plugin
+            .getLogger()
+            .warning("Некорректные действия приглашения: " + exception.getMessage());
         return;
       }
     }

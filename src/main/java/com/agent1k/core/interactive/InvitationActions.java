@@ -19,18 +19,20 @@ public final class InvitationActions {
     String[] legacy = value.split("\\s*\\|\\s*", 3);
     if (legacy.length >= 2 && legacy[1].startsWith("/")) return action;
     if (inviter == null || !PLAYER_NAME.matcher(inviter).matches()) {
-      throw new IllegalArgumentException("Invitation click action requires an inviter");
+      throw new IllegalArgumentException(
+          "Для кликабельного приглашения необходимо корректное имя приглашающего игрока");
     }
     String[] buttons = value.split("\\s*;\\s*", -1);
     if (buttons.length != 2) {
-      throw new IllegalArgumentException("Invitation click action requires two buttons");
+      throw new IllegalArgumentException("Кликабельное приглашение должно содержать две кнопки");
     }
     String[] commands = {"accept", "deny"};
     StringBuilder result = new StringBuilder("[click] ");
     for (int index = 0; index < buttons.length; index++) {
       String[] fields = buttons[index].split("\\s*\\|\\s*", 2);
       if (fields.length != 2 || fields[0].isBlank()) {
-        throw new IllegalArgumentException("Expected invitation button text | hover");
+        throw new IllegalArgumentException(
+            "Ожидается формат кнопки приглашения: текст | подсказка");
       }
       if (index > 0) result.append(" ;; ");
       result

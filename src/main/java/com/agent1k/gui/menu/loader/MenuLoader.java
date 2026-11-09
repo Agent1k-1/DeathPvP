@@ -20,11 +20,11 @@ public final class MenuLoader {
   public void load() {
     File directory = new File(plugin.getDataFolder(), "menus");
     if (!directory.isDirectory() && !directory.mkdirs()) {
-      throw new IllegalStateException("Cannot create menus directory");
+      throw new IllegalStateException("Не удалось создать папку menus");
     }
     if (!new File(directory, "search.yml").exists()) plugin.saveResource("menus/search.yml", false);
     File[] files = directory.listFiles((dir, name) -> name.endsWith(".yml"));
-    if (files == null) throw new IllegalStateException("Cannot read menus directory");
+    if (files == null) throw new IllegalStateException("Не удалось прочитать папку menus");
     Map<String, MenuConfig> loaded = new HashMap<>();
     for (File file : files) {
       YamlConfiguration configuration = new YamlConfiguration();
@@ -36,7 +36,7 @@ public final class MenuLoader {
       } catch (IOException | InvalidConfigurationException | IllegalArgumentException exception) {
         plugin
             .getLogger()
-            .warning("Cannot load menu " + file.getName() + ": " + exception.getMessage());
+            .warning("Не удалось загрузить меню " + file.getName() + ": " + exception.getMessage());
         if (menus.containsKey(file.getName().replaceFirst("\\.yml$", ""))) {
           String id = file.getName().replaceFirst("\\.yml$", "");
           loaded.put(id, menus.get(id));

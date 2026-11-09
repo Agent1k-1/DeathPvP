@@ -12,12 +12,13 @@ public final class MenuConfig {
 
   public MenuConfig(ConfigurationSection configuration) {
     if (!configuration.isString("name") || !configuration.isInt("size")) {
-      throw new IllegalArgumentException("Menu requires name (string) and size (integer)");
+      throw new IllegalArgumentException(
+          "Для меню необходимо указать name (строка) и size (целое число)");
     }
     name = configuration.getString("name");
     size = configuration.getInt("size");
     if (size < 9 || size > 54 || size % 9 != 0) {
-      throw new IllegalArgumentException("Menu size must be 9, 18, 27, 36, 45 or 54");
+      throw new IllegalArgumentException("Размер меню должен быть равен 9, 18, 27, 36, 45 или 54");
     }
     List<MenuItem> loaded = new ArrayList<>();
     ConfigurationSection settings = configuration.getConfigurationSection("menu-settings");
@@ -28,7 +29,8 @@ public final class MenuConfig {
         int slot = item.getInt("slot");
         if (slot < 0 || slot >= size) continue;
         if (!item.isString("material") || !item.isString("name")) {
-          throw new IllegalArgumentException("Menu item " + key + " requires material and name");
+          throw new IllegalArgumentException(
+              "Предмет меню " + key + " должен содержать поля material и name");
         }
         Material material = Material.matchMaterial(item.getString("material"));
         if (material == null || material.isAir() || !material.isItem()) continue;

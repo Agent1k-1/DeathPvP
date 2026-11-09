@@ -17,7 +17,7 @@ public final class ClickableMessageAction implements Action {
     for (String button : value.split("\\s*;;\\s*")) {
       String[] fields = button.split("\\s*\\|\\s*", 3);
       if (fields.length < 2 || !fields[1].startsWith("/")) {
-        throw new IllegalArgumentException("Expected text | /command | hover");
+        throw new IllegalArgumentException("Ожидается формат: текст | /команда | подсказка");
       }
       Component part =
           SERIALIZER

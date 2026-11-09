@@ -22,7 +22,7 @@ public final class PvPGUI {
   public void open(Player p, String name) {
     MenuConfig menu = context.menuLoader.get(name);
     if (menu == null) {
-      context.plugin.getLogger().warning("Menu not loaded: " + name);
+      context.plugin.getLogger().warning("Меню не загружено: " + name);
       return;
     }
     MenuHolder holder = new MenuHolder();
