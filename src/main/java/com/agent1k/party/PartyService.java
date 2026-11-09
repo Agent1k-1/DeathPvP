@@ -29,6 +29,22 @@ public final class PartyService {
     }
     if (args.length == 3) {
       Player target = Bukkit.getPlayerExact(args[2]);
+      if (args[1].equalsIgnoreCase("deny")) {
+        if (target == null || !target.getUniqueId().equals(context.invitations.get(id))) {
+          context.message.tell(p, "invite-missing");
+          return true;
+        }
+        context.invitations.remove(id);
+        context.message.tell(p, "invite-denied");
+        context.message.tell(target, "invite-rejected", Map.of("player", p.getName()));
+        return true;
+      }
+      if (args[1].equalsIgnoreCase("accept")
+          && (target == null || !target.getUniqueId().equals(context.invitations.get(id)))) {
+        context.message.tell(p, "invite-missing");
+        return true;
+      }
+
       if (!context.queue.available(p)
           || !context.queue.available(target)
           || target == p
