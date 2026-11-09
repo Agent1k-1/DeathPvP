@@ -1,5 +1,6 @@
 package com.agent1k.menu;
 
+import com.agent1k.action.ActionExecutor;
 import com.agent1k.core.PvpContext;
 import java.util.*;
 import org.bukkit.entity.Player;
@@ -22,7 +23,7 @@ public final class MenuListener implements Listener {
       if (e.getWhoClicked() instanceof Player p
           && e.getRawSlot() >= 0
           && e.getRawSlot() < m.inventory.getSize())
-        new com.agent1k.action.ActionExecutor(context)
+        new ActionExecutor(context)
             .execute(p, m.bindings.getOrDefault(e.getRawSlot(), List.of()), Map.of());
     }
   }

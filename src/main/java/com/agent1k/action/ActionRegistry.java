@@ -1,6 +1,7 @@
 package com.agent1k.action;
 
 import com.agent1k.core.PvpContext;
+import com.agent1k.core.interactive.ClickableMessageAction;
 import com.agent1k.model.Mode;
 import org.bukkit.entity.Player;
 
@@ -12,7 +13,7 @@ public final class ActionRegistry {
   }
 
   public void register() {
-    context.actions.put("CLICK", new com.agent1k.core.interactive.ClickableMessageAction());
+    context.actions.put("CLICK", new ClickableMessageAction());
     context.actions.put(
         "CHAT",
         new AbstractAction() {

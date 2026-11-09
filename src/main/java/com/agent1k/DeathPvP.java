@@ -1,7 +1,9 @@
 package com.agent1k;
 
-import com.agent1k.core.battle.Battle;
+import com.agent1k.action.ActionRegistry;
 import com.agent1k.core.PvpContext;
+import com.agent1k.core.battle.Battle;
+import com.agent1k.menu.MenuListener;
 import java.io.File;
 import java.util.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,11 +17,11 @@ public final class DeathPvP extends JavaPlugin {
       if (!new File(getDataFolder(), name).exists()) saveResource(name, false);
     context = new PvpContext(this);
     context.configuration.load();
-    new com.agent1k.action.ActionRegistry(context).register();
+    new ActionRegistry(context).register();
     getCommand("pvp").setExecutor(context.command);
     getCommand("deathpvp").setExecutor(context.command);
     getServer().getPluginManager().registerEvents(context.listener, this);
-    getServer().getPluginManager().registerEvents(new com.agent1k.menu.MenuListener(context), this);
+    getServer().getPluginManager().registerEvents(new MenuListener(context), this);
     context.plugin.getServer().getScheduler().runTaskTimer(this, context.queue::match, 20, 20);
   }
 

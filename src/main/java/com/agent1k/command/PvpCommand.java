@@ -1,7 +1,7 @@
 package com.agent1k.command;
 
-import com.agent1k.core.battle.Battle;
 import com.agent1k.core.PvpContext;
+import com.agent1k.core.battle.Battle;
 import java.util.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

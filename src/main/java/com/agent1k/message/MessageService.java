@@ -1,8 +1,11 @@
 package com.agent1k.message;
 
+import com.agent1k.action.ActionExecutor;
 import com.agent1k.core.PvpContext;
+import com.agent1k.core.interactive.InvitationActions;
 import com.agent1k.utils.HexUtils;
 import java.util.*;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 
 public final class MessageService {
@@ -16,11 +19,11 @@ public final class MessageService {
     return HexUtils.color(s);
   }
 
-  public void tell(org.bukkit.command.CommandSender sender, String key) {
+  public void tell(CommandSender sender, String key) {
     tell(sender, key, Map.of());
   }
 
-  public void tell(org.bukkit.command.CommandSender sender, String key, Map<String, String> vars) {
+  public void tell(CommandSender sender, String key, Map<String, String> vars) {
     List<String> actions = new ArrayList<>();
     if (context.messages.isList(key)) {
       actions.addAll(context.messages.getStringList(key));
@@ -39,12 +42,12 @@ public final class MessageService {
     }
     if (key.equals("invite")) {
       try {
-        actions = com.agent1k.core.interactive.InvitationActions.resolve(actions, vars.get("player"));
+        actions = InvitationActions.resolve(actions, vars.get("player"));
       } catch (IllegalArgumentException exception) {
         context.plugin.getLogger().warning("Invalid invite actions: " + exception.getMessage());
         return;
       }
     }
-    new com.agent1k.action.ActionExecutor(context).execute(sender, actions, vars);
+    new ActionExecutor(context).execute(sender, actions, vars);
   }
 }
