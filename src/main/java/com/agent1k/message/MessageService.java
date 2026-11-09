@@ -37,6 +37,14 @@ public final class MessageService {
         }
       }
     }
+    if (key.equals("invite")) {
+      try {
+        actions = com.agent1k.interactive.InvitationActions.resolve(actions, vars.get("player"));
+      } catch (IllegalArgumentException exception) {
+        context.plugin.getLogger().warning("Invalid invite actions: " + exception.getMessage());
+        return;
+      }
+    }
     new com.agent1k.action.ActionExecutor(context).execute(sender, actions, vars);
   }
 }
