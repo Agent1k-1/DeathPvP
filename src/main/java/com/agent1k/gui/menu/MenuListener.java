@@ -1,7 +1,8 @@
-package com.agent1k.menu;
+package com.agent1k.gui.menu;
 
 import com.agent1k.action.ActionExecutor;
 import com.agent1k.core.PvpContext;
+import com.agent1k.gui.holder.MenuHolder;
 import java.util.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,7 +19,7 @@ public final class MenuListener implements Listener {
 
   @EventHandler
   public void click(InventoryClickEvent e) {
-    if (e.getView().getTopInventory().getHolder() instanceof Menu m) {
+    if (e.getView().getTopInventory().getHolder() instanceof MenuHolder m) {
       e.setCancelled(true);
       if (e.getWhoClicked() instanceof Player p
           && e.getRawSlot() >= 0
@@ -30,6 +31,6 @@ public final class MenuListener implements Listener {
 
   @EventHandler
   public void drag(InventoryDragEvent e) {
-    if (e.getView().getTopInventory().getHolder() instanceof Menu) e.setCancelled(true);
+    if (e.getView().getTopInventory().getHolder() instanceof MenuHolder) e.setCancelled(true);
   }
 }

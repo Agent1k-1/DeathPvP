@@ -3,7 +3,7 @@ package com.agent1k;
 import com.agent1k.action.ActionRegistry;
 import com.agent1k.core.PvpContext;
 import com.agent1k.core.battle.Battle;
-import com.agent1k.menu.MenuListener;
+import com.agent1k.gui.menu.MenuListener;
 import java.io.File;
 import java.util.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,7 +13,7 @@ public final class DeathPvP extends JavaPlugin {
 
   public void onEnable() {
     saveDefaultConfig();
-    for (String name : List.of("messages.yml", "arenas.yml", "menus/search.yml"))
+    for (String name : List.of("messages.yml", "arenas.yml"))
       if (!new File(getDataFolder(), name).exists()) saveResource(name, false);
     context = new PvpContext(this);
     context.configuration.load();

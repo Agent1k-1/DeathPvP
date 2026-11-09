@@ -7,44 +7,49 @@
 # [message] текст, [title] текст, [subtitle] текст, [actionbar] текст — вывод сообщений.
 # title и subtitle из одного списка показываются вместе после остальных действий.
 # Старый формат 'QUEUE: NORMAL' также поддерживается.
-title: '&8DeathPvP | Поиск сражения'
+# В menu-settings можно добавлять предметы с любыми уникальными именами секций.
+# actions: [] делает предмет декоративным. Слоты предметов не должны совпадать.
+# [menu] имя_файла открывает другой YAML из menus без расширения .yml.
+# Изменения файлов загружаются командой /deathpvp reload.
+
+name: '&8DeathPvP | Поиск сражения'
 size: 27
 
-items:
+menu-settings:
   normal:
-    slot: 11
-    material: IRON_SWORD
     name: '&aБой 1v1'
     lore:
       - '&7Сражение в случайной точке мира'
+    slot: 11
+    material: IRON_SWORD
     actions:
       - '[queue] NORMAL'
       - '[close]'
 
   death:
-    slot: 13
-    material: DIAMOND_SWORD
     name: '&cСмертельная битва'
     lore:
       - '&7Арена до смерти одного игрока'
+    slot: 13
+    material: DIAMOND_SWORD
     actions:
       - '[queue] DEATH'
       - '[close]'
 
   team:
-    slot: 15
-    material: NETHERITE_SWORD
     name: '&6Бой 2v2'
     lore:
       - '&7Смертельная битва команд'
+    slot: 15
+    material: NETHERITE_SWORD
     actions:
       - '[queue] TEAM'
       - '[close]'
 
   leave:
+    name: '&cОтменить поиск'
     slot: 22
     material: BARRIER
-    name: '&cОтменить поиск'
     actions:
       - '[leave]'
       - '[close]'

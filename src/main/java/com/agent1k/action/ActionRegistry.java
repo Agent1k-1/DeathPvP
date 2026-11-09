@@ -26,6 +26,7 @@ public final class ActionRegistry {
     context.actions.put("ACTIONBAR", (p, v) -> p.sendActionBar(context.message.color(v)));
     context.actions.put("QUEUE", (p, v) -> context.queue.join(p, Mode.valueOf(v)));
     context.actions.put("LEAVE", (p, v) -> context.queue.leave(p.getUniqueId()));
+    context.actions.put("MENU", (p, v) -> context.menu.open(p, v.trim()));
     context.actions.put("CLOSE", (p, v) -> p.closeInventory());
   }
 }

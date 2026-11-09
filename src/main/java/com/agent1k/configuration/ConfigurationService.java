@@ -17,9 +17,7 @@ public final class ConfigurationService {
     context.messages =
         YamlConfiguration.loadConfiguration(
             new File(context.plugin.getDataFolder(), "messages.yml"));
-    context.menus =
-        YamlConfiguration.loadConfiguration(
-            new File(context.plugin.getDataFolder(), "menus/search.yml"));
+    context.menuLoader.load();
     context.arenas =
         YamlConfiguration.loadConfiguration(new File(context.plugin.getDataFolder(), "arenas.yml"));
   }
